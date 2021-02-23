@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+
 export default function CreateNote() {
     const [input, setInput] = useState({
         title: '',
@@ -18,7 +19,9 @@ export default function CreateNote() {
 
     function handleClick(event) {
         event.preventDefault();
+        const key = toString(Math.random());
         const newNote = {
+            id: key,
             title: input.title,
             content: input.content
         };

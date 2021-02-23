@@ -1,5 +1,4 @@
 const express = require("express");
-const { models } = require("mongoose");
 const router = express.Router();
 const Note = require("../models/notesModel");
 
@@ -8,6 +7,7 @@ router.route("/create").post((req, res) => {
     const title = req.body.title;
     const content = req.body.content;
     const newNote = new Note({
+        id,
         title,
         content
     });
@@ -18,4 +18,4 @@ router.route("/notes").get((req, res) => {
     Note.find()
         .then(foundNotes => res.json(foundNotes))
 })
-models.exports = router;
+module.exports = router;
